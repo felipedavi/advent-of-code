@@ -1,4 +1,4 @@
-f = open("day.txt", "r")
+f = open("dataday.txt", "r")
 m = int(0)
 s = int(0)
 for x in f:
