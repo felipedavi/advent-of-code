@@ -1,0 +1,11 @@
+f = open("day.txt", "r")
+m = int(0)
+s = int(0)
+for x in f:
+    if x in ['\n', '\r\n']:
+        if s>m:
+            m = s
+        s = 0
+    else:
+        s = s + int(x)
+print(m)
