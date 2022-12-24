@@ -1,11 +1,13 @@
+import heapq
 f = open("dataday.txt", "r")
-m = int(0)
 s = int(0)
+elf = []
 for x in f:
     if x in ['\n', '\r\n']:
-        if s>m:
-            m = s
-        s = 0
+       elf.append(s)
+       s = 0
     else:
         s = s + int(x)
-print(m)
+m = heapq.nlargest(3,elf)
+print(m[0])
+print(sum(m))
