@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""Advent of Code 2022
+    Day 2
+   Calorie Counting
+"""
+
 import heapq
 f = open("dataday.txt", "r")
 s = int(0)
@@ -9,5 +17,5 @@ for x in f:
     else:
         s = s + int(x)
 m = heapq.nlargest(3,elf)
-print(m[0])
-print(sum(m))
+print("Amounts of Calories of the heaviest elf: " + str(m[0]))
+print("Sum of the calories of the three heaviest elves: {}".format(sum(m)))
