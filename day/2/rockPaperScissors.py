@@ -1,3 +1,12 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+    Advent of Code 2022
+    Day 2
+    Rock Paper Scissors
+"""
+
 score = int(0)
 def game(x,y):
     global score
