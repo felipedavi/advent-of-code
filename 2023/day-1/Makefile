@@ -1,20 +1,28 @@
-CC = gcc
-CFLAGS = -Wall
+# vim: noet ft=make :
+TARGET=main
 
-SRC = $(wildcard *.c)
-OBJ = $(SRC:.c=.o)
+CC=gcc
+CFLAGS=-Wall -g
 
-TARGET = main
+SRC_DIR := src
+OBJ_DIR := obj
 
-all: run clean 
+SRC := $(wildcard $(SRC_DIR)/*.c)
+OBJ := $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
 
 $(TARGET): $(OBJ)
-	@$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) $^ -o $@
 
-%.o: %.c
-	@$(CC) $(CFLAGS) -c -o $@ $<
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
 
 run: $(TARGET)
 	@./$(TARGET)
+
 clean:
-	@rm -f $(OBJ) $(TARGET)
+	@rm -rf $(TARGET) $(OBJ_DIR)
+
+.PHONY: run clean
