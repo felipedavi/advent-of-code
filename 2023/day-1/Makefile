@@ -2,7 +2,7 @@
 TARGET=main
 
 CC=gcc
-CFLAGS=-Wall -g
+CFLAGS=-Wall -g -Iinclude
 
 SRC_DIR := src
 OBJ_DIR := obj
