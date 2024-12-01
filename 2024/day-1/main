@@ -3,6 +3,7 @@
 
 """Advent of Code 2024
    Day 1
+   Historian Hysteria
 """
 
 def part1():
@@ -29,7 +30,30 @@ def part1():
         if(distance<0):
             total_distance+=(distance*-1)
 
-    print(f"Part 1: {total_distance}")
+    print(f"Part One: {total_distance}")
+
+def part2():
+    # f = open('example.txt', 'r').read().splitlines()
+    f = open('input.txt', 'r').read().splitlines()
+    
+    similarity_score = 0
+    left=[]
+    right=[]
+
+    for line in f:
+        l=line.split()
+        left.append(int(l[0]))
+        right.append(int(l[1]))
+
+    for i in left:
+        frequency=0
+        for j in right:
+            if i==j:
+                frequency+=1
+        similarity_score+=(i*frequency)
+    print(f"Part Two: {similarity_score}")
 
 if __name__ == "__main__":
+    print("Advent of Code 2024 - Day One")
     part1()
+    part2()
