@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""Advent of Code 2024
+   Day 1
+"""
+
+def part1():
+    # f = open('example.txt', 'r').read().splitlines()
+    f = open('input.txt', 'r').read().splitlines()
+
+    smaller_left=[]
+    smaller_right=[]
+
+    total_distance=0
+
+    for line in f:
+        l=line.split()
+        smaller_left.append(int(l[0]))
+        smaller_right.append(int(l[1]))
+
+    smaller_left.sort()
+    smaller_right.sort()
+
+    for i,j in zip(smaller_left, smaller_right):
+        distance = j-i
+        if(distance>0):
+            total_distance+=distance
+        if(distance<0):
+            total_distance+=(distance*-1)
+
+    print(f"Part 1: {total_distance}")
+
+if __name__ == "__main__":
+    part1()
