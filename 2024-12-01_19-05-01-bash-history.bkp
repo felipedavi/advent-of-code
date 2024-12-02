@@ -1,0 +1,303 @@
+ls
+sudo apt install vim
+sudo apt-get install -y build-essential manpages-dev
+vim
+sudo apt install curl
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+vim
+vim .vimrc
+ls ~/.vim/autoload/plug.vim
+vim ~/.vimrc 
+sudo apt-get install git
+sudo apt-get install openssh-client
+vim .vimrc 
+exit
+cat ~/.ssh/id_sign.pub
+sudo apt install vim
+sudo apt-get install -y build-essential manpages-dev
+sudo apt install curl
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+vim .vimrc
+ls ~/.vim/autoload/plug.vim
+sudo apt-get install git
+sudo apt-get install openssh-client
+vim .vimrc 
+exit
+rm doc_2024-10-17_06-53-13.bashrc\:Zone.Identifier 
+vim
+vim ~/.vimrc 
+sudo apt install neofetch -y
+mkdir -p ~/.ssh
+vim ~/.ssh/config
+chmod 700 ~/.ssh
+git clone git@github.com:felipedavi/advent-of-code.git
+mkdir 2024
+> ./2024/.gitkeep
+git config --global init.defaultBranch main
+git config --global user.email 31748519+felipedavi@users.noreply.github.com
+git config --global user.name Felipe Oliveira
+git config --global commit.gpgsign true
+git config --global gpg.format ssh
+cd ~/.ssh/
+ssh-add -L
+git config --global user.signingkey "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO4bZ7sij7d1x2IamnkM7jrrAoJBMd5g+Ebd7NHcyFEl 31748519+felipedavi@users.noreply.github.com"
+echo "$(git config --get user.email) namespaces=\"git\" $(cat ~/.ssh/id_sign.pub)" >> ~/.ssh/allowed_signers
+git config --global user.signingkey ~/.ssh/id_sign.pub
+git config --global tag.gpgsign true
+chmod 600 ~/.ssh/id_*
+git commit -m " Começando 2024 :evergreen_tree:"
+git log 
+git show main
+git config gpg.format ssh
+git config --global gpg.ssh.allowedSignersFile "~/.ssh/allowed_signers"
+ls ~/.ssh/allowed_signers 
+cat ~/.ssh/allowed_signers 
+git show main --show-signature
+sudo apt-get install python3
+sudo apt-get install python3 python-is-python3 python3-pip
+sudo apt-get install bash-completion
+source ~/.bashrc 
+cd
+vim main.py
+cd advent-of-code/
+cd 2024
+ls ../2023/day-1/
+mkdir day-1
+>./day-1/.gitkeep
+git commit -m "Començando o dia 1 do AoC 2024:tada:"
+chmod +x
+vim ~/python-tutorial
+cd day-1/
+rm .gitkeep 
+rm ../.gitkeep 
+git add -A
+git commit -m ":heavy_minus_sign: em 5 minutos"
+git push
+notepad.exe example.txt
+notepad.exe input.txt
+cp ~/main.py .
+chmod +x main.py 
+mv main.py day1
+cat day1 
+q
+l
+rm 1 
+cat example.txt 
+ls
+vim day1 && ./day1 
+curl https://adventofcode.com/2024/day/1/input -o input.txt
+cat input.txt 
+https://adventofcode.com/2024/day/1/input
+vim example.txt 
+vim input.txt 
+vim day1 
+./day1 
+sudo apt-get install python3
+sudo apt-get install python3 python-is-python3 python3-pip
+sudo apt-get install bash-completion
+source ~/.bashrc 
+vim main.py
+cd advent-of-code/
+cd 2024
+ls ../2023/day-1/
+mkdir day-1
+>./day-1/.gitkeep
+git commit -m "Començando o dia 1 do AoC 2024:tada:"
+chmod +x
+vim ~/python-tutorial
+rm .gitkeep 
+rm ../.gitkeep 
+git commit -m ":heavy_minus_sign: em 5 minutos"
+notepad.exe example.txt
+notepad.exe input.txt
+cp ~/main.py .
+chmod +x main.py 
+mv main.py day1
+cat day1 
+q
+l
+rm 1 
+cat example.txt 
+vim day1 && ./day1 
+curl https://adventofcode.com/2024/day/1/input -o input.txt
+cat input.txt 
+https://adventofcode.com/2024/day/1/input
+vim example.txt 
+vim input.txt 
+./day1 
+cp main.py advent-of-code/2024/day-1/
+cd advent-of-code/2024/day-1/
+rm "input.txt:Zone.Identifier" 
+vim main.py 
+cp day1 main.py 
+rm main.py 
+cp day1 d
+mv d main
+code day1 
+mv day1 part1
+vim day1 
+> __init__.py
+mv __init__.py 
+cat main
+./main 
+cd
+vim main
+mv main.py /mnt/c/Users/Felipe/Desktop/
+mv python-tutorial /mnt/c/Users/Felipe/Desktop/
+cd advent-of-code/2024/
+cd day-1/
+git status 
+rm __init__.py 
+vim part1 
+./part1 
+mv part1 main 
+ls
+git add -A
+git commit -m "Adicionando a parte 1 do dia 1"
+git push
+vim main 
+rm 1 
+cat example.txt 
+vim day1 && ./day1 
+curl https://adventofcode.com/2024/day/1/input -o input.txt
+cat input.txt 
+https://adventofcode.com/2024/day/1/input
+vim example.txt 
+vim input.txt 
+vim day1 
+./day1 
+sudo apt-get install python3
+sudo apt-get install python3 python-is-python3 python3-pip
+sudo apt-get install bash-completion
+source ~/.bashrc 
+vim main.py
+cd 2024
+ls ../2023/day-1/
+mkdir day-1
+>./day-1/.gitkeep
+git commit -m "Començando o dia 1 do AoC 2024:tada:"
+chmod +x
+vim ~/python-tutorial
+rm .gitkeep 
+rm ../.gitkeep 
+git commit -m ":heavy_minus_sign: em 5 minutos"
+notepad.exe example.txt
+notepad.exe input.txt
+cp ~/main.py .
+chmod +x main.py 
+mv main.py day1
+cat day1 
+q
+l
+rm 1 
+cat example.txt 
+vim day1 && ./day1 
+curl https://adventofcode.com/2024/day/1/input -o input.txt
+cat input.txt 
+https://adventofcode.com/2024/day/1/input
+vim example.txt 
+vim input.txt 
+./day1 
+cp main.py advent-of-code/2024/day-1/
+cd advent-of-code/2024/day-1/
+rm "input.txt:Zone.Identifier" 
+vim main.py 
+cp day1 main.py 
+rm main.py 
+cp day1 d
+mv d main
+code day1 
+mv day1 part1
+vim day1 
+> __init__.py
+mv __init__.py 
+cat main
+cd
+vim main
+mv main.py /mnt/c/Users/Felipe/Desktop/
+mv python-tutorial /mnt/c/Users/Felipe/Desktop/
+cd advent-of-code/2024/
+git status 
+rm __init__.py 
+vim part1 
+./part1 
+mv part1 main 
+git add -A
+git commit -m "Adicionando a parte 1 do dia 1"
+git push
+cd advent-of-code/
+cd 2024/
+cd day-1/
+ls
+./main 
+cat
+cat main 
+vim main 
+yv
+yv https://www.youtube.com/watch?v=sSXca0da66k
+mv day1 part1
+vim day1 
+> __init__.py
+mv __init__.py 
+cat main
+cd
+mv main.py /mnt/c/Users/Felipe/Desktop/
+mv python-tutorial /mnt/c/Users/Felipe/Desktop/
+cd advent-of-code/2024/
+git status 
+rm __init__.py 
+vim part1 
+./part1 
+mv part1 main 
+git add -A
+git commit -m "Adicionando a parte 1 do dia 1"
+cd advent-of-code/
+cd 2024/
+cd day-1/
+cat
+cat main 
+vim main 
+yv
+yv https://www.youtube.com/watch?v=sSXca0da66k
+git clone git@github.com:felipedavi/test.git
+git commit --allow-empty -m ":tada: Commit Inicial"
+lsd
+git push
+..
+.
+./main 
+cp main test/
+cd m
+cd test/
+git commit -A -m "Test"
+git commit -am "Test"
+git commit -a -m "Test"
+git commit -a -m "feat"
+git commit -am "comment"
+git commit -a -m "commit message"
+git alias
+git alias ac = commit -a -m
+git add alias ac = commit -a -m
+git config --global core.editor vim
+git config --global alias.s 'status -sb'
+git s
+rm main 
+git commit -m "adicionado main"
+git config --global alias.ac 'commit -a -m'
+git ac "adicionado main"
+git ac "mai"
+git ac -m "main"
+vim main
+git ac
+git config --global alias.ac '!git add -A && git commit -m'
+vim ~/.gitconfig
+git ac "commit message"
+git --ammend
+git commit --amend 
+git commit --amend -m "Adicionado a main"
+git commit --amend "commit message"
+git revert mainn
+git revert main
+git log
+ls
+exit
