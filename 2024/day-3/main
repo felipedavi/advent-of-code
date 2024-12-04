@@ -5,3 +5,21 @@
    Day 3
    Mull It Over
 """
+
+import re
+
+lines = tuple(open('input.txt', 'r'))
+string = ''
+
+for l in lines:
+    string+=l.strip()
+
+result = 0
+
+pattern = re.compile("(?<=mul\()(\d+),(\d+)(?=\))")
+numbers = re.findall(pattern, string)
+
+for n in numbers:
+    result+=(int(n[0])*int(n[1]))
+
+print(f"The sum of all the results of the multiplications is: {result}")
