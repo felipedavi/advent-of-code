@@ -1,0 +1,43 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""Advent of Code 2024
+   Day 7
+   Bridge Repair
+"""
+
+with open('input.txt') as file:
+    lines = file.readlines()
+
+lines = [ v.strip('\n') for v in lines ]
+
+content = []
+
+for item in lines:
+    key, values = item.split(':')
+    value_list = list(map(int, values.split()))
+    content.append([key, value_list])
+
+calibration = result = 0
+
+for element in content:
+    possibilities = []
+    result = int(element[0])
+    elem = element[1]
+    if len(elem)>1:
+        for idx in range(2 ** (len(elem) - 1)):
+            possibilities.append(list(bin(idx)[2:].zfill(len(elem) - 1)))
+
+    for possibility in possibilities:
+        r = elem[0]
+        for i,j in enumerate(elem[1:]):
+            p = possibility[i-1]
+            if p == '0':
+                r += j
+            elif p == '1':
+                r *= j
+        if r == result:
+            calibration += r
+            break
+
+print(f"Total calibration result: {calibration}")
