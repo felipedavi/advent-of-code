@@ -1,0 +1,55 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+import time
+
+"""Advent of Code 2024
+   Day 11
+   Plutonian Pebbles
+"""
+
+def read_file(filename):
+    with open(filename) as f:
+        lines = f.readlines()
+    lines = [int(val) for line in lines for val in line.split()]
+    return lines
+
+def count_digits(number):
+    return len(str(abs(number)))
+
+is_even = lambda x: x % 2 == 0
+
+def is_even_digit_count(n):
+    return is_even(count_digits(n))
+
+def blinking_stone(items):
+    result = []
+    for item in items:
+        if item == 0:
+            result.append(1)
+        elif is_even_digit_count(item):
+            half = count_digits(item) // 2
+            item_str = str(item)
+            left_digits = item_str[:half]
+            right_digits = item_str[half:]
+            result.append(int(left_digits))
+            result.append(int(right_digits))
+        else:
+            result.append(item*2024)
+    return result
+    
+def call_blinking_stone_n_times(items, n):
+    result = items
+    for _ in range(n):
+        result = blinking_stone(result)
+    return result
+
+def main():
+    print('Advent of Code 2024 - Day 11')
+    values = read_file('input.txt')
+    start_time = time.time()
+    p1 = len(call_blinking_stone_n_times(values, 25))
+    end_time = time.time()
+    print(f"I will have {p1} of stones after blinking 25 times. ({end_time - start_time:.4f} seconds)")
+
+if __name__ == '__main__':
+    main()
