@@ -7,6 +7,12 @@ import time
    Plutonian Pebbles
 """
 
+def measure_time(func, *args, **kwargs):
+    start_time = time.time()
+    result = func(*args, **kwargs)
+    elapsed_time = time.time() - start_time
+    return result, elapsed_time
+
 def read_file(filename):
     with open(filename) as f:
         lines = f.readlines()
@@ -43,13 +49,22 @@ def call_blinking_stone_n_times(items, n):
         result = blinking_stone(result)
     return result
 
+def calculate_stones(values, times):
+    return len(call_blinking_stone_n_times(values, times))
+
 def main():
     print('Advent of Code 2024 - Day 11')
+    
+    values = read_file('example.txt')
+    stones_after_blink, elapsed_time = measure_time(calculate_stones, values, 6)
+    print("Example: ", end="")
+    print(f"I will have {stones_after_blink} stones after blinking 6 times. ({elapsed_time:.8f} seconds)")
+
+
     values = read_file('input.txt')
-    start_time = time.time()
-    p1 = len(call_blinking_stone_n_times(values, 25))
-    end_time = time.time()
-    print(f"I will have {p1} of stones after blinking 25 times. ({end_time - start_time:.4f} seconds)")
+    stones_after_blink, elapsed_time = measure_time(calculate_stones, values, 25)
+    print("Part One: ", end="")
+    print(f"I will have {stones_after_blink} stones after blinking 25 times. ({elapsed_time:.4f} seconds)")
 
 if __name__ == '__main__':
     main()
