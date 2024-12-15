@@ -10,6 +10,7 @@ def main():
     print('Advent of Code 2024 - Day 5: Print Queue')
     rules, pages = read_file('input.txt')
     print("Part 1:", sum_middle_correct_pages(pages, rules))
+    print("Part 2:", sum_middle_incorrect_pages(pages, rules))
 
 def read_file(filename):
     with open(filename) as f:
@@ -46,12 +47,37 @@ def check_order(page, rules):
                 return False
     return True
 
+def find_incorrect_pages(pages, rules):
+    incorrect_pages = []
+    for page in pages:
+        if not check_order(page, rules): incorrect_pages.append(page)
+    return incorrect_pages
+
+def pages_ordering(pages, rules):
+    for page_index, page in enumerate(pages):
+        for i in range(len(page)):
+            for j in range(i + 1, len(page)):
+                for rule in rules:
+                    if {page[i], page[j]} == set(rule):
+                        if rule.index(page[i]) > rule.index(page[j]):
+                            pages[page_index][i], pages[page_index][j] = page[j], page[i]
+    return pages
+
 def sum_middle_correct_pages(pages, rules):
     total = 0
     for page in pages:
         if check_order(page, rules):
             middle_index = len(page) // 2
             total += page[middle_index]
+    return total
+
+def sum_middle_incorrect_pages(pages, rules):
+    pages = find_incorrect_pages(pages, rules)
+    pages = pages_ordering(pages, rules)
+    total = 0
+    for page in pages:
+        middle_index = len(page) // 2
+        total += page[middle_index]
     return total
 
 if __name__ == '__main__':
