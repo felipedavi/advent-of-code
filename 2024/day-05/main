@@ -1,0 +1,58 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""Advent of Code 2024
+   Day 5
+   Print Queue
+"""
+
+def main():
+    print('Advent of Code 2024 - Day 5: Print Queue')
+    rules, pages = read_file('input.txt')
+    print("Part 1:", sum_middle_correct_pages(pages, rules))
+
+def read_file(filename):
+    with open(filename) as f:
+        lines = f.readlines()
+
+    rules = extract_rules(lines)
+    pages = extract_pages(lines)
+
+    return rules, pages
+
+def extract_rules(lines):
+    rules = []
+    for line in lines:
+        if '|' in line:
+            rules.append([int(x) for x in line.strip().split('|')])
+    return rules
+
+def extract_pages(lines):
+    pages = []
+    for line in lines:
+        if ',' in line:
+            pages.append([int(x) for x in line.strip().split(',')])
+    return pages
+
+def check_order(page, rules):
+    for rule in rules:
+        if len(rule) != 2:
+            continue
+        first, second = rule
+        if first in page and second in page:
+            idx_first = page.index(first)
+            idx_second = page.index(second)
+            if idx_first > idx_second:
+                return False
+    return True
+
+def sum_middle_correct_pages(pages, rules):
+    total = 0
+    for page in pages:
+        if check_order(page, rules):
+            middle_index = len(page) // 2
+            total += page[middle_index]
+    return total
+
+if __name__ == '__main__':
+    main()
