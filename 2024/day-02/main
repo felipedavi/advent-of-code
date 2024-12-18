@@ -1,19 +1,29 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import time
+
 """Advent of Code 2022
    Day 2
    Red-Nosed Reports
 """
 
+def measure_time(func, *args, **kwargs):
+    start_time = time.time()
+    result = func(*args, **kwargs)
+    elapsed_time = time.time() - start_time
+    return result, elapsed_time
+
 def main():
     print("Advent of Code 2024 - Day 2")
     with open("input.txt") as file:
         reports = [list(map(int, line.split())) for line in file.readlines()]
-    saved_reports = count_reports_safes(reports)
-    print(f"Part 1: {saved_reports} Reports Safe")
-    saved_reports = count_reports(reports)
-    print(f"Part 2: {saved_reports} Reports Safe")
+
+    saved_reports, time_taken = measure_time(count_reports_safes, reports)
+    print(f"Part 1: {saved_reports} Reports Safe (Time: {time_taken:.8f} seconds)")
+
+    saved_reports, time_taken = measure_time(count_reports, reports)
+    print(f"Part 2: {saved_reports} Reports Safe (Time: {time_taken:.4f} seconds)")
 
 
 def verify_report(report: list) -> bool:
