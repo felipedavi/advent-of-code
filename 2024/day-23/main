@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import itertools
+
+"""Advent of Code 2024
+   Day 23
+   LAN Party
+"""
+
+connections = []
+with open('input.txt') as file:
+    connections = [tuple(line.strip().split('-')) for line in file]
+
+unique_elements = set(itertools.chain.from_iterable(connections))
+
+connection_map = {el: set() for el in unique_elements}
+for a, b in connections:
+    connection_map[a].add(b)
+    connection_map[b].add(a)
+
+valid_groups = []
+for group in itertools.combinations(unique_elements, 3):
+    if all(
+        (pair[1] in connection_map[pair[0]])
+        for pair in itertools.combinations(group, 2)
+    ):
+        valid_groups.append(group)
+
+
+filtered_lan = [group for group in valid_groups if any(element[0] == 't' for element in group)]
+print(len(filtered_lan))
