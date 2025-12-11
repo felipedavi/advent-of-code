@@ -8,7 +8,8 @@ import time
     Secret Entrance
 """
 
-def rotate_dial(dial, steps, increment):
+def rotate_dial(dial, steps, increment, count_all=False):
+    found = 0
     while steps > 0:
         dial += increment
         steps -= 1
@@ -18,27 +19,29 @@ def rotate_dial(dial, steps, increment):
         elif dial == 100:
             dial = 0
 
-        found = 0
-        if dial == 0:
-            found = 1
+        if count_all and dial == 0:
+            found += 1
+       
+    if not count_all and dial == 0:
+        found = 1
 
     return dial, found
 
-def process_instruction(instruction_str, dial):
+def process_instruction(instruction_str, dial, count_all=False):
     direction = instruction_str[0]
     steps = int(instruction_str[1:])
 
     if direction=='L':
-        dial, found = rotate_dial(dial, steps, -1)
+        dial, found = rotate_dial(dial, steps, -1, count_all)
     elif direction=='R':
-        dial, found = rotate_dial(dial, steps, 1)
+        dial, found = rotate_dial(dial, steps, 1, count_all)
         
     return dial, found
 
-def calculate_password(instructions, dial=50):
+def calculate_password(instructions, dial=50, count_all=False):
     total_password = 0
     for instruction in instructions:
-        dial, found = process_instruction(instruction, dial)
+        dial, found = process_instruction(instruction, dial, count_all)
         total_password += found
     return total_password
 
@@ -54,13 +57,17 @@ def read_file(filename):
     lines = [token for line in raw_lines for token in line.split()]
     return lines
 
-
 def main():
     print('Advent of Code 2025\nDay 1\nSecret Entrance\n===============')
     values = read_file('input.txt')
+
     password, elapsed_time = measure_time(calculate_password, values)
     print("Part 1: ", end="")
     print(f"The actual password to open the door is: {password} ({elapsed_time:.8f} seconds)")
+
+    password, elapsed_time = measure_time(calculate_password, values, count_all=True)
+    print("Part 2: ", end="")
+    print(f"Using password method 0x434C49434B, the password to open the door is: {password} ({elapsed_time:.8f} seconds)")
 
 if __name__ == '__main__':
     main()
