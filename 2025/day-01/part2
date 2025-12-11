@@ -4,7 +4,7 @@
 """Advent of Code 2025
     Day 1
     Secret Entrance
-	Part 1
+	Part 2
 """
 
 def left(dial, n):
@@ -43,4 +43,5 @@ password = 0
 f = open('input.txt', 'r').read().splitlines()
 for instruction in f:
     rotation(instruction)
-print(password)
+
+print(f"Using password method 0x434C49434B, the password to open the door is: {password}")
