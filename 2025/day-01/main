@@ -1,0 +1,66 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import time
+
+"""Advent of Code 2025
+    Day 1
+    Secret Entrance
+"""
+
+def rotate_dial(dial, steps, increment):
+    while steps > 0:
+        dial += increment
+        steps -= 1
+        
+        if dial == -1:
+            dial = 99
+        elif dial == 100:
+            dial = 0
+
+        found = 0
+        if dial == 0:
+            found = 1
+
+    return dial, found
+
+def process_instruction(instruction_str, dial):
+    direction = instruction_str[0]
+    steps = int(instruction_str[1:])
+
+    if direction=='L':
+        dial, found = rotate_dial(dial, steps, -1)
+    elif direction=='R':
+        dial, found = rotate_dial(dial, steps, 1)
+        
+    return dial, found
+
+def calculate_password(instructions, dial=50):
+    total_password = 0
+    for instruction in instructions:
+        dial, found = process_instruction(instruction, dial)
+        total_password += found
+    return total_password
+
+def measure_time(func, *args, **kwargs):
+    start_time = time.time()
+    result = func(*args, **kwargs)
+    elapsed_time = time.time() - start_time
+    return result, elapsed_time
+
+def read_file(filename):
+    with open(filename) as f:
+        raw_lines = f.readlines()
+    lines = [token for line in raw_lines for token in line.split()]
+    return lines
+
+
+def main():
+    print('Advent of Code 2025\nDay 1\nSecret Entrance\n===============')
+    values = read_file('input.txt')
+    password, elapsed_time = measure_time(calculate_password, values)
+    print("Part 1: ", end="")
+    print(f"The actual password to open the door is: {password} ({elapsed_time:.8f} seconds)")
+
+if __name__ == '__main__':
+    main()
